@@ -69,6 +69,8 @@ import {
 
 import { settoken } from '../../api/token'
 
+import { DEV_SERVER, PROD_BASE } from '../../api/config'
+
 export default {
     name: 'login',
     components: {
@@ -151,10 +153,7 @@ export default {
     },
     computed: {
         buildLink() {
-
-            return process.env.NODE_ENV === 'development' ?
-                'http://localhost:2900/auth/google' :
-                '/auth/google'
+            return `${process.env.NODE_ENV === 'development' ? DEV_SERVER : PROD_BASE}/auth/google`
         },
         validated() {
             return this.emailerror === '' 

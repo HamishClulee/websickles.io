@@ -5,15 +5,13 @@ import { EventBus, MESSAGES, welcomeback } from '../EventBus'
 
 import { settoken, removetoken } from './token'
 
+import { DEV_SERVER, DEV_CLIENT, PROD_BASE } from './config'
+
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('AuthToken')}`
 
 export class QAuth {
 
-    private DEV_SERV = 'http://localhost:2900'
-    private DEV_CLIENT = 'http://localhost:8080'
-    private PROD_BASE = 'https://welcomeqr.codes'
-
-    private BASE_URL = process.env.NODE_ENV === 'development' ? `${this.DEV_SERV}/auth` : `${this.PROD_BASE}/auth`
+    private BASE_URL = process.env.NODE_ENV === 'development' ? `${DEV_SERVER}/auth` : `${PROD_BASE}/auth`
 
     ax: AxiosInstance;
 

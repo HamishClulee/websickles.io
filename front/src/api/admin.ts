@@ -2,6 +2,8 @@ import axios, { AxiosResponse, AxiosInstance, AxiosPromise } from 'axios'
 import { QUser } from '@I/IUser'
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('AuthToken')}`
 
+import { DEV_SERVER, DEV_CLIENT, PROD_BASE } from './config'
+
 interface ErrorPayload {
     time: Date,
     userAgent: string,
@@ -15,12 +17,7 @@ interface ErrorPayload {
 
 export class QAdmin {
 
-    private DEV_SERV = 'http://localhost:2900'
-    private DEV_CLIENT = 'http://localhost:8080'
-
-    private PROD_BASE = 'https://your-domain.here'
-
-    private BASE_URL = process.env.NODE_ENV === 'development' ? `${this.DEV_SERV}/admin` : `${this.PROD_BASE}/admin`
+    private BASE_URL = process.env.NODE_ENV === 'development' ? `${DEV_SERVER}/admin` : `${PROD_BASE}/admin`
 
     ax: AxiosInstance;
 

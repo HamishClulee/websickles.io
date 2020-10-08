@@ -24,6 +24,8 @@ const verifyemail = () => import ('../views/auth/verifyemail.vue')
 const account = () => import('../views/account/account.vue')
 
 /** Site routes */
+const terms = () => import('../views/terms.vue')
+const privacy = () => import('../views/privacy.vue')
 const contact = () => import('../views/contact.vue')
 
 /** Misc plumbing routes */
@@ -207,6 +209,30 @@ const routes = [
         name: 'verifyemail',
         component: verifyemail,
         beforeEnter: (to: any, from: any, next: any) => { overwritemetas({ index: false }, next) },
+    },
+    {
+        path: '/privacy',
+        name: 'privacy',
+        component: privacy,
+        beforeEnter: (to: any, from: any, next: any) => {
+            overwritemetas({
+                title: 'Websickles~Privacy Policy',
+                description: `Brief description of how websickles manages and takes care of your data and your datas security.`,
+                index: true,
+            }, next)
+        },
+    },
+    {
+        path: '/toc',
+        name: 'terms',
+        component: terms,
+        beforeEnter: (to: any, from: any, next: any) => {
+            overwritemetas({
+                title: 'Websickles~Terms and Conditions',
+                description: `Brief description of how Welcome QR Codes does business in a legal sense, information on your rights and our methods of operation`,
+                index: true,
+            }, next)
+        },
     },
     {
         path: '*',

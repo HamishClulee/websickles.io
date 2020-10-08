@@ -7,7 +7,7 @@ yarn build
 
 echo "---------------------- Building front. ---------------------------------------"
 cd ../front
-yarn build --fix --skip-plugin @vue/cli-plugin-pwa,pwa
+yarn build --fix
 cd ..
 
 echo "---------------------- Copying static assets to /server/dist. ----------------"
@@ -16,13 +16,13 @@ rm -R $PWD/server/dist/front-end
 mkdir $PWD/server/dist/front-end
 cp -a $PWD/front/dist/. $PWD/server/dist/front-end
 
-# echo "---------------------- Pushing to GIT. ---------------------------------------"
-# git add .
-# MSG="=> deployed: $DATE"
-# git commit -m "$1 $MSG"
-# git push
+echo "---------------------- Pushing to GIT. ---------------------------------------"
+git add .
+MSG="=> deployed: $DATE"
+git commit -m "$1 $MSG"
+git push
 
-# echo "---------------------- shiping the mevn'z -------------------------------------"
-# ssh hamishclulee@welcomeqr.codes 'cd /var/www/welcomeqr.codes && sudo git reset --hard && sudo git pull && sudo systemctl restart welcomeqr.service'
+echo "---------------------- shiping the mevn'z -------------------------------------"
+ssh websickles.io 'cd /var/www/websickles.io && sudo git reset --hard && sudo git pull && sudo systemctl restart websickles.service'
 
 echo "---------------------- Deploy complete. Have a nice day. ----------------------"

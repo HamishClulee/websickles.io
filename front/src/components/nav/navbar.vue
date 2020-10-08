@@ -2,8 +2,8 @@
     <div class="navbar-con">
 
         <div class="navbar-left">
-            <div class="logo-con" @click="$route.name !== 'home' ? routehome : null">
-                <img src="/images/createmevn-logo.svg" />
+            <div class="logo-con" @click="routehome($route.name !== 'home' ? 'home' : null)">
+                <img src="/images/pop-logo.png" class="pop-logo-actual" />
             </div>
         </div>
 
@@ -111,8 +111,8 @@ export default {
                 this.canvasopen = !this.canvasopen
             }, 200)
         },
-        routehome() {
-            this.$router.push({ path: '/'})
+        routehome(nothome) {
+            if (nothome) this.$router.push({ path: '/'})
         },
         logout() {
             this.$QAuth.logout().then(res => {
@@ -137,6 +137,9 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
+.pop-logo-actual
+    transform: rotateZ(90deg)
+    width: 50px
 .logout
     color: $primary
     border-color: $primary
@@ -193,7 +196,7 @@ a
         content: ''
         width: 10px
         height: 2px
-        background-color: $primary
+        background-color: $highlight
         position: relative
         top: 2px
         right: 2px
@@ -205,7 +208,7 @@ a
             content: ''
             width: 10px
             height: 2px
-            background-color: lighten($primary, 20)
+            background-color: lighten($highlight, 20)
             position: relative
             top: 2px
             right: 2px
@@ -246,9 +249,18 @@ a
     top: 0
     z-index: 2
     opacity: 0.9
-    background-color: white
-    border-bottom: 1px solid lighten($font, 60)
+    background: white
+    // background: linear-gradient(90deg, rgba(56,57,97,1) 0%, rgba(183,79,111,1) 100%)
+    // border-top: 3px solid $link
+    border-bottom: 1px solid $very-light-gray
     height: $navbar-height
+    &:before
+        content: ''
+        width: 100%
+        height: 3px
+        background: linear-gradient(90deg, rgba(56,57,97,1) 0%, rgba(183,79,111,1) 100%)
+        position: fixed
+
 .navbar-right
     align-items: center
     justify-content: flex-end
@@ -287,20 +299,12 @@ a
         height: 2px
         width: 35px
 .logo-con
-    height: 80px
     display: flex
     align-items: center
     cursor: pointer
-    margin-left: 15px
-    @media (min-width: 0px) and (max-width: 520px)
-        height: 60px
+    margin-left: 35px
     &:hover
         opacity: 0.8
-    img
-        height: 50px
-        width: 120px
-        @media (min-width: 0px) and (max-width: 520px)
-            height: 30px
 .text-item
     padding: 0 20px
 .account

@@ -35,21 +35,22 @@ export default {
     padding: 0 10%
 .primary
     background-color: $primary
-    color: white
+    color: $off-white
 .secondary
     background-color: $secondary
-    color: white
+    color: $off-white
 .tertiary
     background-color: $tertiary
-    color: white
+    color: $off-white
 .highlight
     background-color: $highlight
-    color: white
+    color: $off-white
 .white
     background-color: white
+    color: $font
 .additional
     background-color: $additional
-    color: white
+    color: $off-white
 .high-contrast
     background-color: $high-contrast
     color: $font

@@ -2,14 +2,14 @@
     <footer class="qr-footer" :class="$route.path.split('/')[1] === 'docs' ? 'docs-footer' : 'normal-footer'">
         <figure class="logo-container">
             <img
-                src="/images/createmevn-logo.svg"
+                src="/images/pop-logo.png"
                 alt="Create Mevn Logo"
                 width="100%"
             />
         </figure>
         <div class="tilde-spacer">~</div>
         <div class="text-container">
-            <h4 class="h4">Create MEVN App</h4>
+            <h4 class="h4">WEBSICKLES.IO</h4>
         </div>
         <div class="tilde-spacer">~</div>
         <div class="text-container sub">
@@ -44,13 +44,18 @@ export default {
         display: flex
         height: 200px
         margin-right: 2em
+        img
+            transform: rotateZ(90deg)
+            width: 100px
+            margin-left: 90px
     .text-container
         display: flex
     .tilde-spacer
         display: flex
         align-items: center
         justify-content: center
-        font-size: 2.5em
+        font-size: 3.5em
+        margin: 0 20px 0 5px
         color: $light-gray
     .sub
         color: $medium-gray

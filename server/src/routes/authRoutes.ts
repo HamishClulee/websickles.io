@@ -10,7 +10,7 @@ import { User } from '../models/User'
 const jwt = require('jsonwebtoken')
 
 /** App Constants */
-const PORT = 2900
+const PORT = Env.get().port
 const DEV_URL = Env.get().devUrl
 const PROD_URL = Env.get().prodUrl
 const BASE_URL = process.env.NODE_ENV === 'development' ? DEV_URL : PROD_URL

@@ -67,6 +67,7 @@
 import qinput from '../../components/forms/qinput'
 import { EventBus, MESSAGES, LOADING, SERVER_AUTH_ERROR_MESSAGE, welcomeback } from '../../EventBus'
 import { settoken } from '../../api/token'
+import { DEV_SERVER, PROD_BASE } from '../../api/config'
 export default {
     name: 'signup',
     components: {
@@ -126,9 +127,7 @@ export default {
     },
     computed: {
         buildLink() {
-            return process.env.NODE_ENV === 'development' ?
-                'http://localhost:2900/auth/google' :
-                '/auth/google'
+            return `${process.env.NODE_ENV === 'development' ? DEV_SERVER : PROD_BASE}/auth/google`
         },
         validated() {
             return this.emailerror === '' 
