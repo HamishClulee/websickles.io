@@ -46,7 +46,6 @@ export default {
 
         import(`./docs/test.md`)
             .then(res => {
-                debugger
                 this.markdown = res.default
             })
             .then(() => {
