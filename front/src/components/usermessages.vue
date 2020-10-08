@@ -1,6 +1,6 @@
 <template>
     <transition name="fade" mode="out-in">
-        <div class="message-container" :class="sass" :style="black ? { color: 'black' } : { color: 'white' }">
+        <div class="message-container" :class="sass">
             {{ msg }}
         </div>
     </transition>
@@ -18,16 +18,12 @@ export default {
         sass: {
             type: String,
             validator: (value) => {
-                return ['primary', 'secondary', 'tertiary', 'highlight', 'white', ''].indexOf(value) !== -1
+                return ['success', 'warning', 'error', 'info', ''].indexOf(value) !== -1
             },
         },
         msg: {
             required: true,
             type: String,
-        },
-        black: {
-            type: Boolean,
-            required: true,
         },
     },
     mounted() {
@@ -49,14 +45,19 @@ export default {
     font-family: $body-font
     font-size: 1.3em
     z-index: 6
-.primary
-    background: $primary
-.secondary
-    background: $secondary
-.tertiary
-    background: $tertiary
-.highlight
+.success
+    background: $success
+    color: $off-white
+.warning
+    background: $high-contrast
+    color: $primary
+.error
     background: $highlight
+    color: $off-white
+.info
+    background: $link
+    color: $off-white
 .white
-    background: 'white'
+    background: $off-white
+    color: $primary
 </style>

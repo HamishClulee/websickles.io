@@ -47,10 +47,11 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
     });
 }));
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const SERVER_URL = process.env.NODE_ENV === 'production' ? Environment_1.default.get().prodUrl : Environment_1.default.get().devServerUrl;
 passport.use(new GoogleStrategy({
     clientID: Environment_1.default.get().googleClientId,
     clientSecret: Environment_1.default.get().googleSecret,
-    callbackURL: `${Environment_1.default.get().baseUrl}/auth/google/callback`
+    callbackURL: `${SERVER_URL}/auth/google/callback`
 }, (req, accessToken, refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () {
     /**
      * => Get email from profile

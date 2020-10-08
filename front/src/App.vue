@@ -92,7 +92,6 @@ export default {
             this.showUserMessage = deets.is
             this.msg = deets.msg
             this.sass = deets.color
-            this.black = deets.black || false
         })
 
         EventBus.$on(SITEMODAL, (type = null) => {

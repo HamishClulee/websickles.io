@@ -17,7 +17,7 @@ const Environment_1 = require("./Environment");
 const jwt = require('jsonwebtoken');
 /** App Constants */
 const PORT = Environment_1.default.get().port;
-const DEV_URL = Environment_1.default.get().devUrl;
+const DEV_CLIENT_URL = Environment_1.default.get().devClientUrl;
 const PROD_URL = Environment_1.default.get().prodUrl;
 const RedisStore = require('connect-redis')(session);
 const redisClient = redis.createClient();
@@ -58,7 +58,7 @@ class Express {
          */
         this.app.use(cors({
             origin: process.env.NODE_ENV !== 'production' ?
-                [DEV_URL, '/\.google.com\.com$/']
+                [DEV_CLIENT_URL, '/\.google.com\.com$/']
                 : [PROD_URL, '/\.google.com\.com$/'],
             credentials: true
         }));

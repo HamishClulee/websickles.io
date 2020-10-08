@@ -7,8 +7,9 @@ class Env {
         dotenv.config({ path: path.join(__dirname, '../../.env') });
         const env = process.env.NODE_ENV;
         const prodUrl = process.env.PROD_URL;
-        const devUrl = process.env.DEV_URL;
-        const baseUrl = process.env.NODE_ENV === 'production' ? prodUrl : devUrl;
+        const devClientUrl = process.env.DEV_CLIENT_URL;
+        const devServerUrl = process.env.DEV_SERVER_URL;
+        const baseUrl = process.env.NODE_ENV === 'production' ? prodUrl : devClientUrl;
         const port = process.env.PORT;
         const mongooseUrl = process.env.MONGOOSE_URL;
         const googleClientId = process.env.GOOGLE_ID;
@@ -39,7 +40,8 @@ class Env {
             redisHttpHost,
             redisPrefix,
             prodUrl,
-            devUrl,
+            devClientUrl,
+            devServerUrl,
             queueMonitor,
             queueMonitorHttpPort
         };

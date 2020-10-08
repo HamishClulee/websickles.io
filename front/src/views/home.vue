@@ -14,14 +14,14 @@
                     <p class="define">2. The easiest way to build a website, ever.</p>
                     <p class="usage">"Wow, that <em>websickle</em> is looking awesome!"</p>
                     <div class="cta-container layout-center-all layout-col">
-                        <button class="cta button tertiary">I Would Like My Own Websickle!</button>
+                        <button class="cta button tertiary" @click="$router.push({ name: 'login' })">I Would Like My Own Websickle!</button>
                     </div>
                 </div>
             </div>
 
         </displaysection>
 
-        <displaysection sassclass="primary">
+        <!-- <displaysection sassclass="primary">
 
             <h1>So how does this all work?</h1>
 
@@ -105,19 +105,17 @@
                 Lots of words...
             </p>
             <ctabutton text="try it for free" :do="ctaroute"></ctabutton>
-        </displaysection>
+        </displaysection> -->
         
     </main>
 </template>
 
 <script>
 import displaysection from '../components/displaysection'
-import ctabutton from '../components/buttons/ctabutton'
 export default {
     name: 'home',
     components: {
         displaysection,
-        ctabutton,
     },
     methods: {
         ctaroute () { this.$router.push({name: 'manage'}) },
