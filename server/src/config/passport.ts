@@ -98,9 +98,9 @@ passport.use(new GoogleStrategy(
 
 						SendGrid.send({
 							to: newUser.email,
-							from: 'noreply@welcomeqr.codes',
+							from: 'noreply@websickles.io',
 							subject: 'A warm welcome from Welcome QR Codes',
-							html: WelcomeEmail.build(`${Env.get().baseUrl}/account?token=${token}`)
+							html: WelcomeEmail.build()
 						})
 
 						return done(null, newUser)

@@ -98,9 +98,9 @@ export const signup = async (req: IRequest, res: IResponse) => {
 
 				SendGrid.send({
 					to: _user.email,
-					from: 'noreply@welcomeqr.codes',
-					subject: 'A warm welcome from Welcome QR Codes',
-					html: WelcomeEmail.build(`${Env.get().baseUrl}/account?token=${token}`)
+					from: 'noreply@websickles.io',
+					subject: 'Hai from Websickles',
+					html: WelcomeEmail.build()
 				})
 
 				return Clean.approve(res, 200, _user)
@@ -231,7 +231,7 @@ export const sendverifyemail = async (req: IRequest, res, IResponse) => {
 
 			SendGrid.send({
 				to: user.email,
-				from: 'noreply@welcomeqr.codes',
+				from: 'noreply@websickles.io',
 				subject: 'Please verify your email.',
 				html: VerifyEmail.build(`${Env.get().baseUrl}/verify-your-email?token=${user.emailVerifyToken}`)
 			})
@@ -296,7 +296,7 @@ export const resetpassword = async (req: IRequest, res, IResponse) => {
 
 			SendGrid.send({
 				to: user.email,
-				from: 'noreply@welcomeqr.codes',
+				from: 'noreply@websickles.io',
 				subject: 'Password Changed Successfully',
 				html: ResetEmail.build()
 			})
@@ -327,7 +327,7 @@ export const forgotpassword = async (req: IRequest, res: IResponse) => {
 
 		SendGrid.send({
 			to: user.email,
-			from: 'noreply@welcomeqr.codes',
+			from: 'noreply@websickles.io',
 			subject: 'Reset your password on WelcomeQR Codes',
 			html: ForgotPassword.build(`${Env.get().baseUrl}/auth/reset?token=${token}`)
 		})

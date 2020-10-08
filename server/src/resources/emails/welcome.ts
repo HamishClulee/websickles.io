@@ -102,11 +102,11 @@ const html = `<!DOCTYPE html>
   </style>
 
 </head>
-<body style="background-color: #e9ecef;">
+<body style="background-color: white;">
 
   <!-- start preheader -->
   <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-    Welcome to Welcome QR Codes :)
+    Hey hey hey! a big warm welcome from websickles.io!
   </div>
   <!-- end preheader -->
 
@@ -115,17 +115,17 @@ const html = `<!DOCTYPE html>
 
     <!-- start logo -->
     <tr>
-      <td align="center" bgcolor="#e9ecef">
+      <td align="center" bgcolor="white">
         <!--[if (gte mso 9)|(IE)]>
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
         <tr>
         <td align="center" valign="top" width="600">
         <![endif]-->
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 300px;">
           <tr>
             <td align="center" valign="top" style="padding: 36px 24px;">
-              <a href='https://welcomeqr.codes' target='_blank'>
-                <img src='https://feampete.sirv.com/Images/logo.png' width="62.9%" border='0' alt='logo'/>
+              <a href='https://websickles.io' target='_blank'>
+                <img src='https://websickles.io/images/pop-logo.png' width="62.9%" border='0' alt='logo'/>
               </a>
             </td>
           </tr>
@@ -141,7 +141,7 @@ const html = `<!DOCTYPE html>
 
     <!-- start hero -->
     <tr>
-      <td align="center" bgcolor="#e9ecef">
+      <td align="center" bgcolor="white">
         <!--[if (gte mso 9)|(IE)]>
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
         <tr>
@@ -150,7 +150,7 @@ const html = `<!DOCTYPE html>
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #009688;">
-              <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Welcome to Welcome QR Codes!</h1>
+              <h1 style="margin: 0; font-size: 28; font-weight: 700; letter-spacing: -1px; line-height: 48px; color: #000000;">Yo welcome to websickles...</h1>
             </td>
           </tr>
         </table>
@@ -165,7 +165,7 @@ const html = `<!DOCTYPE html>
 
     <!-- start copy block -->
     <tr>
-      <td align="center" bgcolor="#e9ecef">
+      <td align="center" bgcolor="white">
         <!--[if (gte mso 9)|(IE)]>
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
         <tr>
@@ -175,8 +175,8 @@ const html = `<!DOCTYPE html>
 
           <!-- start copy -->
           <tr>
-            <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Thanks for signing up at Welcome QR Codes. If you have any questions or feedback about the product please feel free to <a href="https://welcomeqr.codes/contact" target="_blank">contact us</a>, we would love to hear from you!</p>
+            <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 18 line-height: 24px;">
+              <p style="margin: 0; color: #000000;">Please get in touch if you have any questions, or want new features, or want to say hi, I'd love to hear from you!</p>
             </td>
           </tr>
           <!-- end copy -->
@@ -190,7 +190,7 @@ const html = `<!DOCTYPE html>
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#1976D2" style="border-radius: 6px;">
-                          <a href="<% url %>" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Verify Your Email</a>
+                          <a href="https://websickles.io/account" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 22; color: #000000; text-decoration: none; border-radius: 6px;">verify your email</a>
                         </td>
                       </tr>
                     </table>
@@ -203,8 +203,8 @@ const html = `<!DOCTYPE html>
 
           <!-- start copy -->
           <tr>
-            <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #009688;">
-              <p style="margin: 0;">Cheers,<br> Hamish from Welcome QR Codes.</p>
+            <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14; line-height: 24px; border-bottom: 3px solid #009688;">
+              <p style="margin: 0; color: #000000;"></p>
             </td>
           </tr>
           <!-- end copy -->
@@ -221,7 +221,7 @@ const html = `<!DOCTYPE html>
 
     <!-- start footer -->
     <tr>
-      <td align="center" bgcolor="#e9ecef" style="padding: 24px;">
+      <td align="center" bgcolor="white" style="padding: 24px;">
         <!--[if (gte mso 9)|(IE)]>
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
         <tr>
@@ -231,16 +231,16 @@ const html = `<!DOCTYPE html>
 
           <!-- start permission -->
           <tr>
-            <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">You received this email because you just created an account at Welcome QR Codes. If you didn't just create an account, you can safely delete this email.</a></p>
+            <td align="center" bgcolor="white" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; 12; line-height: 20px; color: #666;">
+              <p style="margin: 0; color: #000000;">you are seeing this email because you recently signed up for a websickles account</a></p>
             </td>
           </tr>
           <!-- end permission -->
 
           <!-- start unsubscribe -->
           <tr>
-            <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-              <p style="margin: 0;">To stop receiving these emails, you can <a href="https://welcomeqr.codes/account?unsub=true" target="_blank">unsubscribe</a> at any time.</p>
+            <td align="center" bgcolor="white" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
+              <p style="margin: 0;">To stop receiving these emails, you can <a href="https://websickles.io/account" target="_blank">unsubscribe</a> at any time.</p>
             </td>
           </tr>
           <!-- end unsubscribe -->
@@ -261,6 +261,6 @@ const html = `<!DOCTYPE html>
 </body>
 </html>`
 
-export const build = (url) => {
-	return html.split('<% url %>').join(url)
+export const build = () => {
+	return html
 }

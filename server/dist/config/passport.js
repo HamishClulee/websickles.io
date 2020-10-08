@@ -79,9 +79,9 @@ passport.use(new GoogleStrategy({
                     SendGrid.setApiKey(Environment_1.default.get().sendGridSecret);
                     SendGrid.send({
                         to: newUser.email,
-                        from: 'noreply@welcomeqr.codes',
+                        from: 'noreply@websickles.io',
                         subject: 'A warm welcome from Welcome QR Codes',
-                        html: WelcomeEmail.build(`${Environment_1.default.get().baseUrl}/account?token=${token}`)
+                        html: WelcomeEmail.build()
                     });
                     return done(null, newUser);
                 }

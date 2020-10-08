@@ -7,7 +7,7 @@
                 width="100%"
             />
         </figure>
-        <div class="tilde-spacer">~</div>
+        <div class="tilde-spacer pull-margin">~</div>
         <div class="text-container">
             <h4 class="h4">WEBSICKLES.IO</h4>
         </div>
@@ -42,7 +42,7 @@ export default {
     .logo-container
         width: 20%
         display: flex
-        height: 200px
+        height: 215px
         margin-right: 2em
         img
             transform: rotateZ(90deg)
@@ -50,12 +50,15 @@ export default {
             margin-left: 90px
     .text-container
         display: flex
+    .pull-margin
+        margin-left: -50px !important
     .tilde-spacer
         display: flex
         align-items: center
         justify-content: center
         font-size: 3.5em
-        margin: 0 20px 0 5px
+        margin-right: 10px
+        margin-left: 10px
         color: $light-gray
     .sub
         color: $medium-gray

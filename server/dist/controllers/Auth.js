@@ -80,9 +80,9 @@ exports.signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 SendGrid.setApiKey(process.env.SENDGRID_API_KEY);
                 SendGrid.send({
                     to: _user.email,
-                    from: 'noreply@welcomeqr.codes',
-                    subject: 'A warm welcome from Welcome QR Codes',
-                    html: WelcomeEmail.build(`${Environment_1.default.get().baseUrl}/account?token=${token}`)
+                    from: 'noreply@websickles.io',
+                    subject: 'Hai from Websickles',
+                    html: WelcomeEmail.build()
                 });
                 return Clean_1.default.approve(res, 200, _user);
             });
@@ -168,7 +168,7 @@ exports.sendverifyemail = (req, res, IResponse) => __awaiter(void 0, void 0, voi
             SendGrid.setApiKey(process.env.SENDGRID_API_KEY);
             SendGrid.send({
                 to: user.email,
-                from: 'noreply@welcomeqr.codes',
+                from: 'noreply@websickles.io',
                 subject: 'Please verify your email.',
                 html: VerifyEmail.build(`${Environment_1.default.get().baseUrl}/verify-your-email?token=${user.emailVerifyToken}`)
             });
@@ -212,7 +212,7 @@ exports.resetpassword = (req, res, IResponse) => __awaiter(void 0, void 0, void 
             SendGrid.setApiKey(process.env.SENDGRID_API_KEY);
             SendGrid.send({
                 to: user.email,
-                from: 'noreply@welcomeqr.codes',
+                from: 'noreply@websickles.io',
                 subject: 'Password Changed Successfully',
                 html: ResetEmail.build()
             });
@@ -233,7 +233,7 @@ exports.forgotpassword = (req, res) => __awaiter(void 0, void 0, void 0, functio
         SendGrid.setApiKey(process.env.SENDGRID_API_KEY);
         SendGrid.send({
             to: user.email,
-            from: 'noreply@welcomeqr.codes',
+            from: 'noreply@websickles.io',
             subject: 'Reset your password on WelcomeQR Codes',
             html: ForgotPassword.build(`${Environment_1.default.get().baseUrl}/auth/reset?token=${token}`)
         });

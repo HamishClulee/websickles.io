@@ -11,23 +11,8 @@
 
         <div class="navbar-right">
 
-            <div class="text-item" :class="checkvis('home') ? 'active-route' : 'inactive-route'">
-                <router-link :to="{ path: '/'}">Home</router-link>
-            </div>
-            <div class="text-item" :class="checkvis('authed') ? 'active-route' : 'inactive-route'">
-                <router-link :to="{ path: '/authed'}">Authed</router-link>
-            </div>
             <div class="text-item" :class="checkvis('login') ? 'active-route' : 'inactive-route'">
-                <router-link :to="{ path: '/auth/login'}">Login</router-link>
-            </div>
-            <div class="text-item" :class="checkvis('signup') ? 'active-route' : 'inactive-route'">
-                <router-link :to="{ path: '/auth/signup'}">Signup</router-link>
-            </div>
-            <div class="text-item" :class="checkvis('docs') ? 'active-route' : 'inactive-route'">
-                <router-link :to="{ path: '/docs'}">Docs</router-link>
-            </div>
-            <div class="text-item" :class="checkvis('components') ? 'active-route' : 'inactive-route'">
-                <router-link :to="{ path: '/components'}">Components</router-link>
+                <router-link :to="{ path: '/auth/login'}"><button class="button primary">LOGIN / SIGNUP</button></router-link>
             </div>
 
             <div class="account-active-indic" @click="togglecanvas" v-if="isauthed">
@@ -37,11 +22,11 @@
                 <h6 class="small-6">ACCOUNT</h6>
             </div>
 
-            <div class="hamburger" @click="togglecanvas">
+            <!-- <div class="hamburger" @click="togglecanvas">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
-            </div>
+            </div> -->
         </div>
 
         <transition name="fade" mode="in-out">
@@ -56,11 +41,6 @@
                         class="canvas-item"
                         @click="togglecanvas">
                             <router-link :to="{ path: '/'}">home</router-link>
-                    </div>
-                    <div
-                        class="canvas-item"
-                        @click="togglecanvas">
-                            <router-link :to="{ path: '/pricing'}">pricing</router-link>
                     </div>
                     <div
                         class="canvas-item"
