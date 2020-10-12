@@ -1,13 +1,13 @@
 <template>
     <div class="small-screen-container">
+        <img src="/images/pop-logo.png" />
         <h4>
-            Welcome QR isn't ready for mobile users yet!
+            Websickles isn't ready for mobile users yet!
         </h4>
         <h4>
             Check back soon, or switch to a device with a larger screen!
         </h4>
-
-        <img src="/svg/smallogo.svg" />
+        <img src="/images/pop-logo.png" />
     </div>
 </template>
 
@@ -40,7 +40,7 @@ export default {
     flex-direction: column
     text-align: center
     h4
-        font-size: 1.7em
+        font-size: 1.8em
         font-family: $heading-font
         color: lighten($font, 40)
     img

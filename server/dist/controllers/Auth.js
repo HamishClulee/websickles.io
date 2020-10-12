@@ -32,7 +32,7 @@ exports.login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
     try {
         /**
          * I think passport and the try catch should be enough to catch the case where a user
-         * who has signed up with an OAuth provided, and there fore doesnt have a password,
+         * who has signed up with an OAuth provided, and therefore doesnt have a password,
          * tries to log in using a password.
          * => time will tell.
          */
@@ -234,7 +234,7 @@ exports.forgotpassword = (req, res) => __awaiter(void 0, void 0, void 0, functio
         SendGrid.send({
             to: user.email,
             from: 'noreply@websickles.io',
-            subject: 'Reset your password on WelcomeQR Codes',
+            subject: 'Reset your websickles password',
             html: ForgotPassword.build(`${Environment_1.default.get().baseUrl}/auth/reset?token=${token}`)
         });
         return Clean_1.default.approve(res, 200, user);
@@ -261,7 +261,7 @@ exports.contact = (req, res) => {
     SendGrid.send({
         to: Environment_1.default.get().internalEmail,
         from: 'contact@welcomeqr.codes',
-        subject: 'New contact from Welcome QR',
+        subject: 'New contact from websickles.io',
         html: `
 			<p><b>From:</b> ${req.body.name}</p>
 			<p><b>Email:</b> ${req.body.email}</p>

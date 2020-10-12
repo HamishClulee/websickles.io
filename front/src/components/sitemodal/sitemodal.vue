@@ -1,9 +1,9 @@
 <template>
-    <div class="modal-container">
+    <div class="modal-container layout-col layout-center-all">
         <div class="modal-background" @click="closeModal" @keydown.esc="closeModal"></div>
-        <div class="modal-card">
+        <div class="modal-card layout-col layout-center-all">
 
-            <div class="modal-card-content">
+            <div class="modal-card-content layout-col layout-center-all">
 
                 <smallscreenmodal v-if="contains === 'smallscreen'"></smallscreenmodal>
 
@@ -72,7 +72,8 @@ export default {
     right: 0
     top: 0
     bottom: 0
-    margin: 50% auto
+    height: 90vh
+    margin: 10vh auto
     display: flex
     flex-direction: column
     overflow-y: hidden !important

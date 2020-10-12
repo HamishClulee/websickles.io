@@ -1,19 +1,14 @@
 <template>
-    <footer class="qr-footer" :class="$route.path.split('/')[1] === 'docs' ? 'docs-footer' : 'normal-footer'">
-        <figure class="logo-container">
-            <img
-                src="/images/pop-logo.png"
-                alt="Create Mevn Logo"
-                width="100%"
-            />
-        </figure>
-        <div class="tilde-spacer pull-margin">~</div>
-        <div class="text-container">
-            <h4 class="h4">WEBSICKLES.IO</h4>
-        </div>
-        <div class="tilde-spacer">~</div>
-        <div class="text-container sub">
-            <h4 class="h4">Make Life Easy</h4>
+    <footer class="qr-footer layout-row">
+        <img
+            src="/images/pop-logo.png"
+            alt="Create Mevn Logo"
+            width="100%"
+            class="logo"
+        />
+        <div class="text-container layout-col">
+            <h4 class="main">WEBSICKLES.IO</h4>
+            <h4 class="sub">Make Life Easy</h4>
         </div>
     </footer>
 </template>
@@ -25,41 +20,20 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.docs-footer
-    margin-left: $docs-sidebar-width
-.normal-footer
-    width: 98%
-    margin-left: auto
-    height: 30vh
-    min-height: 400px
 .qr-footer
-    display: flex
-    flex-direction: row
+    height: 10vh
+    min-height: 200px
     align-items: center
     justify-content: center
-    // min-width: 400px
-    margin-right: auto
-    .logo-container
-        width: 20%
-        display: flex
-        height: 215px
-        margin-right: 2em
-        img
-            transform: rotateZ(90deg)
-            width: 100px
-            margin-left: 90px
+    opacity: 0.7
+    .logo
+        width: 60px
+        margin-right: 25px
     .text-container
-        display: flex
-    .pull-margin
-        margin-left: -50px !important
-    .tilde-spacer
-        display: flex
-        align-items: center
-        justify-content: center
-        font-size: 3.5em
-        margin-right: 10px
-        margin-left: 10px
-        color: $light-gray
-    .sub
-        color: $medium-gray
+        justify-content: flex-end
+        h4
+            margin-top: 0
+            margin-bottom: 10px
+        .sub
+            color: $medium-gray
 </style>

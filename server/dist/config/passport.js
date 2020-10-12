@@ -80,7 +80,7 @@ passport.use(new GoogleStrategy({
                     SendGrid.send({
                         to: newUser.email,
                         from: 'noreply@websickles.io',
-                        subject: 'A warm welcome from Welcome QR Codes',
+                        subject: 'Websickles says hello!',
                         html: WelcomeEmail.build()
                     });
                     return done(null, newUser);

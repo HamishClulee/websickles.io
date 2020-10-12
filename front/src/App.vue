@@ -143,7 +143,7 @@ export default {
     },
     computed: {
         checkroute() {
-            return ['create', 'wapp', 'preview'].indexOf(this.$route.name) === -1
+            return ['app'].indexOf(this.$route.name) === -1
         },
         showfooter() {
             return ['auth'].indexOf(this.$route.name) === -1
