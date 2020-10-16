@@ -6,6 +6,7 @@ const getters = {
     scrollY: (state: State) => state.ui.scrollY,
     isauthed: (state: State) => state.user.authed,
     getuser: (state: State) => state.user,
+    getCurrentDrag: (state: State) => state.drag.current,
 }
 
 export default getters

@@ -14,6 +14,9 @@ const state: State = {
         windowHeight: 0,
         scrollY: 0,
     },
+    drag: {
+        current: '',
+    },
 }
 
 export default state

@@ -103,7 +103,7 @@ export default {
 
                         EventBus.$emit(MESSAGES, welcomeback(res.data.user.email))
 
-                        this.$router.push({ path: '/app/manage' })
+                        this.$router.push({ path: '/app' })
                     }
                 })
             }

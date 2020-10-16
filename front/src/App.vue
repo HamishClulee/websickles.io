@@ -115,7 +115,7 @@ export default {
         if (para.get('googleauth') === 'true') {
 
             EventBus.$emit(MESSAGES, LOGGED_IN_WITH_GOOGLE)
-            this.$router.push({ path: '/app/manage' })
+            this.$router.push({ path: '/app' })
             
         }
 
@@ -143,7 +143,7 @@ export default {
     },
     computed: {
         checkroute() {
-            return ['app'].indexOf(this.$route.name) === -1
+            return ['wapp'].indexOf(this.$route.name) === -1
         },
         showfooter() {
             return ['auth'].indexOf(this.$route.name) === -1

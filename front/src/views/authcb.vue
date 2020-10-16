@@ -15,7 +15,7 @@ export default {
         if (token) {
             
             settoken(token.split('~').join('.'))
-            this.$router.push({ name: 'app' })
+            this.$router.push({ name: 'wapp' })
 
         }
     },

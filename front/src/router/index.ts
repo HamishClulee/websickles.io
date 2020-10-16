@@ -9,7 +9,7 @@ const adminmain = () => import('../views/admin/adminmain.vue')
 const serverlogs = () => import('../views/admin/serverlogs.vue')
 
 /** Protected application routes */
-const app = () => import('../views/app/app.vue')
+const wapp = () => import('../views/wapp.vue')
 
 /** Auth routes */
 const auth = () => import('../views/auth.vue')
@@ -122,12 +122,19 @@ const routes = [
         name: 'auth',
         component: auth,
         redirect: { name: 'login' },
+        // beforeEnter: (to: any, from: any, next: any) => {
+        //     if (tokenOk()) next({ name: 'wapp' })
+        //     else next({ name: 'login' })
+        // },
         children: [
             {
                 path: '/auth/login',
                 name: 'login',
                 component: login,
                 beforeEnter: (to: any, from: any, next: any) => {
+
+                    // if (tokenOk()) next({ name: 'wapp' }) 
+
                     overwritemetas({
                         title: 'Login ~ Signup',
                         description: `Login and Signup here!`,
@@ -178,11 +185,11 @@ const routes = [
     // -------------------------------------------------------------------\
     {
         path: '/app',
-        name: 'app',
+        name: 'wapp',
         meta: {
             requiresAuth: true,
         },
-        component: app,
+        component: wapp,
         beforeEnter: (to: any, from: any, next: any) => {
             overwritemetas({
                 title: 'Login ~ Signup',

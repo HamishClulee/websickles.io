@@ -132,6 +132,10 @@ $body-font: 'Source Sans Pro', sans-serif
 
 $navbar-height: 80px
 $docs-sidebar-width: 300px
+$wapp-menu-height: 130px
+
+@function tint($color, $percentage)
+    @return mix(white, $color, $percentage)
 
 body
     color: $font
@@ -154,17 +158,5 @@ html
 @import "flexhelp"
 @import "docs"
 
-:export
-    primary: $primary
-    secondary: $secondary
-    tertiary: $tertiary
-    highlight: $highlight
-    additional: $additional
-    link: $link
-    font: $font
-    darkgray: $dark-gray
-    mediumgray: $medium-gray
-    light-gray: $light-gray
-    verylightgray: $very-light-gray
 
 

@@ -7,7 +7,13 @@ const SET_WINDOW_SIZE = 'SET_WINDOW_SIZE'
 const SET_SCROLL_LOCATION = 'SET_SCROLL_LOCATION'
 const IS_AUTHED = 'IS_AUTHED'
 
+const SET_CURRENTLY_DRAGGED = 'SET_CURRENTLY_DRAGGED'
+
 const mutations = {
+
+    [SET_CURRENTLY_DRAGGED]: (state: State, elementID: String) => {
+        state.drag.current = elementID
+    },
 
     [IS_AUTHED]: (state: State, details: AuthResponse) => {
         state.user.authed = details.authed

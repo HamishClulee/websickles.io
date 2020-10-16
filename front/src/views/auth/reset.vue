@@ -115,7 +115,7 @@ export default {
                 EventBus.$emit(MESSAGES, welcomeback(res.data.user.email))
                 this.servermsg = 'Password reset successfully! You are now logged in!'
                 this.$store.commit('IS_AUTHED', res.data.user)
-                this.$router.push({ path: '/app/manage' })
+                this.$router.push({ path: '/app' })
             }
         },
     },

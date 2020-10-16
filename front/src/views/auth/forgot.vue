@@ -67,17 +67,6 @@ export default {
             this.servermsg = msg
         })
     },
-    created () {
-        // this.$QAuth.authenticate(false).then(res => {
-
-        //     this.$store.commit('IS_AUTHED', res.data.user)
-
-        //     EventBus.$emit(MESSAGES, alreadyloggedinas(res.data.user.email))
-            
-        //     this.$router.push({ path: '/app/manage' })
-
-        // })
-    },
     methods: {
         submit(e) {
             e.preventDefault()

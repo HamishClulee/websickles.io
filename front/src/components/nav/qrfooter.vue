@@ -1,5 +1,5 @@
 <template>
-    <footer class="qr-footer layout-row">
+    <footer class="qr-footer layout-row" :class="isWapp ? 'wapp-footer' : 'standard-footer'">
         <img
             src="/images/pop-logo.png"
             alt="Create Mevn Logo"
@@ -16,10 +16,17 @@
 <script>
 export default {
     name: 'qrfooter',
+    computed: {
+        isWapp() {
+            return this.$route.name === 'wapp'
+        },
+    },
 }
 </script>
 
 <style lang="sass" scoped>
+.wapp-footer
+    margin-bottom: $wapp-menu-height
 .qr-footer
     height: 10vh
     min-height: 200px
@@ -36,4 +43,4 @@ export default {
             margin-bottom: 10px
         .sub
             color: $medium-gray
-</style>
+</style>    
