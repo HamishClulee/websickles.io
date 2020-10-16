@@ -134,8 +134,22 @@ $navbar-height: 80px
 $docs-sidebar-width: 300px
 $wapp-menu-height: 130px
 
+// Slightly lighten a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
 @function tint($color, $percentage)
     @return mix(white, $color, $percentage)
+
+// Slightly darken a color
+// @access public
+// @param {Color} $color - color to shade
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function shade($color, $percentage)
+    @return mix(black, $color, $percentage)
+
 
 body
     color: $font

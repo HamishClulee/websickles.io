@@ -14,5 +14,4 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.app-mode-container
 </style>
