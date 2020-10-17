@@ -1,4 +1,4 @@
-import { State } from '@I/IState'
+import { State } from '../../interfaces/IState'
 
 const getters = {
     windowWidth: (state: State) => state.ui.windowWidth,
@@ -7,6 +7,8 @@ const getters = {
     isauthed: (state: State) => state.user.authed,
     getuser: (state: State) => state.user,
     getCurrentDrag: (state: State) => state.drag.current,
+    getWidgets: (state: State) => state.widgets,
+    getWidget: (state: State) => (name: string) => state.widgets[name],
 }
 
 export default getters

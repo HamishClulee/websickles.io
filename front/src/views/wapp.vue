@@ -3,7 +3,10 @@
     
         <apptopbar></apptopbar>
 
-        <menuswitcher></menuswitcher>
+        <keep-alive>
+            <menuswitcher></menuswitcher>
+        </keep-alive>
+
 
         <section class="app-content-panel">
 

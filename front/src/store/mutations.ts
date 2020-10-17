@@ -1,18 +1,31 @@
-import { State } from '@I/IState'
-import { AuthResponse } from '@I/IApi'
-import qAuth from '../main'
+import { State, WgtState } from '../../interfaces/IState'
+import { AuthResponse } from '../../interfaces/IApi'
 import { removetoken, settoken } from '../api/token'
 
 const SET_WINDOW_SIZE = 'SET_WINDOW_SIZE'
 const SET_SCROLL_LOCATION = 'SET_SCROLL_LOCATION'
 const IS_AUTHED = 'IS_AUTHED'
 
-const SET_CURRENTLY_DRAGGED = 'SET_CURRENTLY_DRAGGED'
+const SET_WIDGET_STATE = 'SET_WIDGET_STATE'
+// const SET_WIDGET_ACTIVE = 'SET_WIDGET_ACTIVE'
+
+interface SetWgtStatePayload { 
+    elementID: string,
+    wgtState: WgtState 
+}
 
 const mutations = {
 
-    [SET_CURRENTLY_DRAGGED]: (state: State, elementID: String) => {
-        state.drag.current = elementID
+    // [SET_WIDGET_ACTIVE]: (state: State, widgetKey: string) => {
+
+    // },
+
+    [SET_WIDGET_STATE]: (state: State, payload: SetWgtStatePayload) => {
+
+        if (payload.wgtState === WgtState.Dragging) state.drag.current = payload.elementID
+
+        state.widgets[payload.elementID].state = payload.wgtState
+        
     },
 
     [IS_AUTHED]: (state: State, details: AuthResponse) => {

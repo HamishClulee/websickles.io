@@ -2,7 +2,7 @@
     <section class="drawer-container">
 
         <div class="drawer-section">
-            <router-link class="drawer-item link" :to="{ name: 'manage' }">Manage</router-link>
+            <router-link class="drawer-item link" :to="{ path: '/no-where-in-particular' }">Fake Link to No Where</router-link>
         </div>
 
         <div class="drawer-section">

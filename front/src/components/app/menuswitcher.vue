@@ -24,7 +24,7 @@ export default {
     name: 'menuswitcher',
     data() {
         return {
-            showmenus: true,
+            showmenus: false,
             META_MODE: META_MODE,
             DETAILS_MODE: DETAILS_MODE,
             WIDGET_MODE: WIDGET_MODE,

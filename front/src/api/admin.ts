@@ -1,5 +1,5 @@
 import axios, { AxiosResponse, AxiosInstance, AxiosPromise } from 'axios'
-import { QUser } from '@I/IUser'
+import { QUser } from '../../interfaces/IUser'
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('AuthToken')}`
 
 import { DEV_SERVER, DEV_CLIENT, PROD_BASE } from './config'

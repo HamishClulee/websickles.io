@@ -1,5 +1,5 @@
-import { State, UI } from '@I/IState'
-
+import { State, WgtState } from '../../interfaces/IState'
+import { NAVBAR, HEADER } from '../../interfaces/IWidgetNames'
 const state: State = {
     user: {
         email: null,
@@ -16,6 +16,20 @@ const state: State = {
     },
     drag: {
         current: '',
+    },
+    widgets: {
+        [NAVBAR]: {
+            state: WgtState.Dormant,
+            description: { placeholder: '' },
+            baseStyles: { placeholder: '' },
+            iconPath: '',
+        },
+        [HEADER]: {
+            state: WgtState.Dormant,
+            description: { placeholder: '' },
+            baseStyles: { placeholder: '' },
+            iconPath: '',
+        },
     },
 }
 

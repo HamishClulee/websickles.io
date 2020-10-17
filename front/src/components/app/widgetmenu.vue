@@ -1,31 +1,40 @@
 <template>
     <section class="widget-menu-con">
 
+        <!-- icon = value.iconPath -->
         <!-- @dragend="dragend_handler" @dragenter="dragenter" -->
-        <button class="widget-button" id="headerdrag" draggable="true" @dragstart="dragstart_handler">
-            header
-        </button>
+        <button
+            v-for="(value, name, index) in getWidgets"
+            :key="index" 
+            class="widget-button"
+            :id="name"
+            draggable="true"
+            @dragstart="dragstart_handler"
+        >{{ name }}</button>
 
     </section>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+
+import { mapMutations, mapGetters } from 'vuex'
+
 export default {
     name: 'widgetmenu',
     methods: {
-        ...mapMutations(['SET_CURRENTLY_DRAGGED']),
+
+        ...mapMutations(['SET_WIDGET_STATE']),
+
         dragstart_handler(ev) {
-            this.SET_CURRENTLY_DRAGGED(ev.target.id)            
-            // debugger
+
+            this.SET_WIDGET_STATE({
+                elementID: ev.target.id,
+                wgtState: 'DRAGGING',
+            })
+
         },
-        // dragend_handler(ev) {
-        //     debugger
-        // },
-        // dragenter(it, ev) {
-        //     debugger
-        // },
     },
+    computed: { ...mapGetters(['getWidgets']) },
 }
 </script>
 
@@ -61,42 +70,4 @@ export default {
 .inactive-button
     display: flex
     border-bottom: 2px solid $light-gray
-.bold
-    background: center / contain no-repeat url("/svg/bold.svg")
-    background-size: unset
-.italic
-    background: center / contain no-repeat url("/svg/italic.svg")
-    background-size: unset
-#undo
-    background: center / contain no-repeat url("/svg/undo.svg")
-    background-size: unset
-#redo
-    background: center / contain no-repeat url("/svg/redo.svg")
-    background-size: unset
-.times
-    background: center / contain no-repeat url("/svg/times.svg")
-    background-size: unset
-    border-bottom: 2px solid $secondary
-.link
-    background: center / contain no-repeat url("/svg/link.svg")
-    background-size: unset
-.list
-    background: center / contain no-repeat url("/svg/list.svg")
-    background-size: unset
-#increaseListLevel
-    background: center / contain no-repeat url("/svg/list-indent.svg")
-    background-size: unset
-.image
-    background: center / contain no-repeat url("/svg/image.svg")
-    background-size: unset
-.remove-formatting
-    background: center / contain no-repeat url("/svg/cancel.svg")
-    background-size: unset
-.color
-    background: center / contain no-repeat url("/svg/palette.svg")
-    background-size: unset
-    border-bottom: 2px solid $light-gray
-.fontsize
-    background: center / contain no-repeat url("/svg/text-size.svg")
-    background-size: unset
 </style>
