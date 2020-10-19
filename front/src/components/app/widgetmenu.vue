@@ -9,32 +9,18 @@
             class="widget-button"
             :id="name"
             draggable="true"
-            @dragstart="dragstart_handler"
         >{{ name }}</button>
 
     </section>
 </template>
 
 <script>
-
-import { mapMutations, mapGetters } from 'vuex'
-
+import { mapGetters } from 'vuex'
 export default {
     name: 'widgetmenu',
-    methods: {
-
-        ...mapMutations(['SET_WIDGET_STATE']),
-
-        dragstart_handler(ev) {
-
-            this.SET_WIDGET_STATE({
-                elementID: ev.target.id,
-                wgtState: 'DRAGGING',
-            })
-
-        },
+    computed: {
+        ...mapGetters(['getWidgets']),
     },
-    computed: { ...mapGetters(['getWidgets']) },
 }
 </script>
 

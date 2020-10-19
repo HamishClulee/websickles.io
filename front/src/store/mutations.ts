@@ -23,6 +23,7 @@ const mutations = {
     [SET_WIDGET_STATE]: (state: State, payload: SetWgtStatePayload) => {
 
         if (payload.wgtState === WgtState.Dragging) state.drag.current = payload.elementID
+        else if (payload.wgtState === WgtState.Placed) state.drag.current = ''
 
         state.widgets[payload.elementID].state = payload.wgtState
         

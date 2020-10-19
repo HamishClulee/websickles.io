@@ -1,5 +1,5 @@
 <template>
-    <section class="widget-content-container" @dragenter.prevent="dragenter($event)" @drop="dragend($event)">
+    <section id="widget-content-container" class="widget-content-container">
 
         <section
             class="navbar layout-center-all layout-col"
@@ -18,42 +18,21 @@
 
 <script>
 
-import { mapMutations, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import { NAVBAR, HEADER } from '@I/IWidgetNames'
 export default {
     name: 'widgetcontent',
+    props: {
+        outline: {
+            type: Object,
+            required: true,
+        },
+    },
     data() {
         return {
             NAVBAR: NAVBAR,
             HEADER: HEADER,
-            outline: {
-                [NAVBAR]: false,
-                [HEADER]: false,
-            },
         }
-    },
-    methods: {
-
-        ...mapMutations([
-            'SET_WIDGET_STATE',
-        ]),
-
-        dragenter(event) {
-
-            if (this.getCurrentDrag === HEADER) this.outline[HEADER] = true
-            if (this.getCurrentDrag === NAVBAR) this.outline[NAVBAR] = true
-
-        },
-
-        dragend(ev) {
-
-            this.SET_WIDGET_STATE({
-                elementID: this.getCurrentDrag,
-                wgtState: 'PLACED',
-            })
-            this.outline[this.getCurrentDrag] = false
-        },
-
     },
     computed: {
         ...mapGetters(['getCurrentDrag', 'getWidgets', 'getWidget']),
@@ -74,6 +53,8 @@ export default {
     background: $light-gray
     border: 1px solid $medium-gray
     border-radius: 5px
+.placed
+    background: $secondary
 .header
     height: 300px
 .navbar
