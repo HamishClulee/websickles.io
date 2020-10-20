@@ -7,7 +7,6 @@ const SET_SCROLL_LOCATION = 'SET_SCROLL_LOCATION'
 const IS_AUTHED = 'IS_AUTHED'
 
 const SET_WIDGET_STATE = 'SET_WIDGET_STATE'
-// const SET_WIDGET_ACTIVE = 'SET_WIDGET_ACTIVE'
 
 interface SetWgtStatePayload { 
     elementID: string,
@@ -16,17 +15,15 @@ interface SetWgtStatePayload {
 
 const mutations = {
 
-    // [SET_WIDGET_ACTIVE]: (state: State, widgetKey: string) => {
-
-    // },
-
     [SET_WIDGET_STATE]: (state: State, payload: SetWgtStatePayload) => {
 
         if (payload.wgtState === WgtState.Dragging) state.drag.current = payload.elementID
-        else if (payload.wgtState === WgtState.Placed) state.drag.current = ''
+        else if (payload.wgtState === WgtState.Placed || payload.wgtState === WgtState.Dormant) state.drag.current = ''
 
-        state.widgets[payload.elementID].state = payload.wgtState
-        
+        if (state.widgets[payload.elementID]) {
+            state.widgets[payload.elementID].state = payload.wgtState
+        }
+
     },
 
     [IS_AUTHED]: (state: State, details: AuthResponse) => {

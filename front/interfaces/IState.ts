@@ -4,7 +4,8 @@ export interface State {
     user: QUser['user'],
     ui: UI,
     drag: Drag,
-    widgets: AllWidgets,
+    static: StaticWidgets,
+    content: Array<ContentWidget>,
 }
 export interface UI {
     windowWidth: number,
@@ -37,6 +38,12 @@ export interface Widget {
     iconPath: string,
 }
 
-export interface AllWidgets {
+export interface ContentWidget extends Widget {
+    columns: number,
+    centeredV: boolean,
+    centeredH: boolean,
+}
+
+export interface StaticWidgets {
     [key: string]: Widget,
 }

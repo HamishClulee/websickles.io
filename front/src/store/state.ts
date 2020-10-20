@@ -1,5 +1,5 @@
 import { State, WgtState } from '../../interfaces/IState'
-import { NAVBAR, HEADER } from '../../interfaces/IWidgetNames'
+import { NAVBAR, HEADER, CONTENT_BLOCKS } from '../../interfaces/IWidgetNames'
 const state: State = {
     user: {
         email: null,
@@ -17,7 +17,7 @@ const state: State = {
     drag: {
         current: '',
     },
-    widgets: {
+    static: {
         [NAVBAR]: {
             state: WgtState.Dormant,
             description: { placeholder: '' },
@@ -31,6 +31,5 @@ const state: State = {
             iconPath: '',
         },
     },
+    content: [],
 }
-
-export default state

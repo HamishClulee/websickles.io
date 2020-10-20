@@ -23,7 +23,8 @@
 import widgetmenu from './widgetmenu'
 import widgetcontent from './widgetcontent'
 import { mapGetters, mapMutations } from 'vuex'
-import { NAVBAR, HEADER } from '@I/IWidgetNames'
+import { NAVBAR, HEADER, CONTENT_BLOCKS } from '@I/IWidgetNames'
+import { WgtState } from '@I/IState'
 export default {
     name: 'widgetmode',
     components: {
@@ -48,7 +49,7 @@ export default {
 
             this.SET_WIDGET_STATE({
                 elementID: event.target.id,
-                wgtState: 'DRAGGING',
+                wgtState: WgtState.Dragging,
             })
 
             if (this.getCurrentDrag === HEADER) this.outline[HEADER] = true
@@ -62,10 +63,18 @@ export default {
     
                 this.SET_WIDGET_STATE({
                     elementID: this.getCurrentDrag,
-                    wgtState: 'PLACED',
+                    wgtState: WgtState.Placed,
                 })
+
+            } else {
+
+                this.SET_WIDGET_STATE({
+                    elementID: this.getCurrentDrag,
+                    wgtState: WgtState.Dormant,
+                })
+
             }
-            
+
             this.outline[this.getCurrentDrag] = false
 
         },
