@@ -5,25 +5,43 @@ import { removetoken, settoken } from '../api/token'
 const SET_WINDOW_SIZE = 'SET_WINDOW_SIZE'
 const SET_SCROLL_LOCATION = 'SET_SCROLL_LOCATION'
 const IS_AUTHED = 'IS_AUTHED'
-
-const SET_WIDGET_STATE = 'SET_WIDGET_STATE'
+const SET_CONTENT_STATE = 'SET_CONTENT_STATE'
+const SET_STATIC_STATE = 'SET_STATIC_STATE'
 
 interface SetWgtStatePayload { 
     elementID: string,
-    wgtState: WgtState 
+    wgtState: WgtState,
+    type?: string,
+    index?: number,
+    isOriginal?: boolean,
+    isDelete?: boolean,
 }
 
 const mutations = {
 
-    [SET_WIDGET_STATE]: (state: State, payload: SetWgtStatePayload) => {
+    [SET_STATIC_STATE]: (state: State, payload: SetWgtStatePayload) => {
 
         if (payload.wgtState === WgtState.Dragging) state.drag.current = payload.elementID
         else if (payload.wgtState === WgtState.Placed || payload.wgtState === WgtState.Dormant) state.drag.current = ''
 
-        if (state.widgets[payload.elementID]) {
-            state.widgets[payload.elementID].state = payload.wgtState
+        if (state.static[payload.elementID]) {
+            state.static[payload.elementID].state = payload.wgtState
         }
 
+    },
+
+    [SET_CONTENT_STATE]: (state: State, payload: SetWgtStatePayload) => {
+        if (payload.wgtState === WgtState.Dragging) state.drag.current = payload.elementID
+        else if (payload.wgtState === WgtState.Placed || payload.wgtState === WgtState.Dormant) state.drag.current = ''
+
+        if (payload.isOriginal) {
+            // TODO: add new item
+            // TODO: reorder items
+            // TODO: remove items
+        }
+
+        if (payload.index) state.content[payload.index].state = payload.wgtState
+    
     },
 
     [IS_AUTHED]: (state: State, details: AuthResponse) => {

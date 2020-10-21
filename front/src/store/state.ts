@@ -33,3 +33,5 @@ const state: State = {
     },
     content: [],
 }
+
+export default state

@@ -1,4 +1,5 @@
 <template>
+
     <section
         class="app-mode-container widget-mode-container"
         id="widget-mode-container"
@@ -43,11 +44,11 @@ export default {
     },
     methods: {
 
-        ...mapMutations(['SET_WIDGET_STATE']),
+        ...mapMutations(['SET_STATIC_STATE']),
 
         dragstart(event) {
 
-            this.SET_WIDGET_STATE({
+            this.SET_STATIC_STATE({
                 elementID: event.target.id,
                 wgtState: WgtState.Dragging,
             })
@@ -61,14 +62,14 @@ export default {
 
             if (this.isDragging && event.target.id === 'widget-content-panel') {
     
-                this.SET_WIDGET_STATE({
+                this.SET_STATIC_STATE({
                     elementID: this.getCurrentDrag,
                     wgtState: WgtState.Placed,
                 })
 
             } else {
 
-                this.SET_WIDGET_STATE({
+                this.SET_STATIC_STATE({
                     elementID: this.getCurrentDrag,
                     wgtState: WgtState.Dormant,
                 })
@@ -80,7 +81,7 @@ export default {
         },
     },
     computed: {
-        ...mapGetters(['getCurrentDrag', 'getWidgets', 'getWidget']),
+        ...mapGetters(['getCurrentDrag', 'getAllStatic', 'getStaticWidget']),
 
         isDragging() {
             return this.getCurrentDrag !== '' && this.getCurrentDrag

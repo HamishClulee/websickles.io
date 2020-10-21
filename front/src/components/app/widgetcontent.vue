@@ -6,7 +6,7 @@
             v-if="shouldDisplay(NAVBAR)"
             :class="{
                 'outline' : outline[NAVBAR],
-                'placed': getWidget(NAVBAR).state === 'PLACED'
+                'placed': getStaticWidget(NAVBAR).state === 'PLACED'
             }"
         ><h5>navbar</h5></section>
 
@@ -15,18 +15,16 @@
             v-if="shouldDisplay(HEADER)"
             :class="{
                 'outline' : outline[HEADER],
-                'placed': getWidget(HEADER).state === 'PLACED',
+                'placed': getStaticWidget(HEADER).state === 'PLACED',
             }"
         ><h5>header / banner</h5></section>
 
+        <!--  -->
         <section
-            v-for="(content, index) in getContentBlocksByState([WgtState.Dragging, WgtState.Placed])"
+            v-for="(content, index) in getContentBlocks"
             :key="index"
             class="content-block layout-center-all layout-col layout-center-all"
-            :class="{
-                'outline' : outline[CONTENT_BLOCK],
-                'placed': getWidget(CONTENT_BLOCK).state === 'PLACED',
-            }"
+
         ><h5>content block</h5></section>
 
     </section>
@@ -36,7 +34,6 @@
 
 import { mapGetters } from 'vuex'
 import { NAVBAR, HEADER, CONTENT_BLOCKS } from '@I/IWidgetNames'
-import { WgtState } from '@I/IState'
 export default {
     name: 'widgetcontent',
     props: {
@@ -55,11 +52,11 @@ export default {
     methods: {
         isPending(type) {
             return 
-            this.getWidget(type).state === WgtState.Dragging 
-            && this.getWidget(type).state !== WgtState.Placed
+            this.getStaticWidget(type).state === 'DRAGGING'
+            && this.getStaticWidget(type).state !== 'PLACED'
         },
         isPlaced(type) {
-            return this.getWidget(type).state === WgtState.Placed
+            return this.getStaticWidget(type).state === 'PLACED'
         },
         shouldDisplay(type) {
             return this.isPending(type) || this.isPlaced(type)
@@ -69,9 +66,9 @@ export default {
 
         ...mapGetters([
             'getCurrentDrag',
-            'getWidgets',
-            'getWidget',
-            'getContentBlocksByState',
+            'getAllStatic',
+            'getStaticWidget',
+            'getContentBlocks',
         ]),
 
         isDragging() {

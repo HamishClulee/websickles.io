@@ -4,12 +4,20 @@
         <!-- icon = value.iconPath -->
         <!-- @dragend="dragend_handler" @dragenter="dragenter" -->
         <button
-            v-for="(value, name, index) in getWidgets"
+            v-for="(value, name, index) in getAllStatic"
             :key="index" 
             class="widget-button"
             :id="name"
-            draggable="true"
-        >{{ name }}</button>
+            draggable="true">
+                {{ name }}
+        </button>
+
+        <button
+            class="widget-button"
+            id="content_block"
+            draggable="true">
+                CONTENT
+        </button>
 
     </section>
 </template>
@@ -19,7 +27,7 @@ import { mapGetters } from 'vuex'
 export default {
     name: 'widgetmenu',
     computed: {
-        ...mapGetters(['getWidgets']),
+        ...mapGetters(['getAllStatic']),
     },
 }
 </script>

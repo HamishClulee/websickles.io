@@ -7,8 +7,9 @@ const getters = {
     isauthed: (state: State) => state.user.authed,
     getuser: (state: State) => state.user,
     getCurrentDrag: (state: State) => state.drag.current,
-    getWidgets: (state: State) => state.widgets,
-    getWidget: (state: State) => (name: string) => state.widgets[name],
+    getAllStatic: (state: State) => state.static,
+    getStaticWidget: (state: State) => (name: string) => state.static[name],
+    getContentBlocks: (state: State) => state.content,
 }
 
 export default getters
