@@ -95,7 +95,7 @@ export default {
 
         if (params.get('authRedirect') === 'true') {
 
-            EventBus.$emit(MESSAGES, NEED_TO_BE_LOGGED_IN)
+            EventBus.emit(MESSAGES, NEED_TO_BE_LOGGED_IN)
 
         }
     },
@@ -128,7 +128,7 @@ export default {
 
             this.servermsg = `Something isn't right with those login details, try again. Maybe you need to Sign Up?`
             if (err.response.status !== 403) {
-                EventBus.$emit(MESSAGES, EDITOR_ERROR)
+                EventBus.emit(MESSAGES, EDITOR_ERROR)
             }
 
         },
@@ -144,7 +144,7 @@ export default {
 
                 this.$store.commit('IS_AUTHED', res.data.user)
 
-                EventBus.$emit(MESSAGES, alreadyloggedinas(res.data.user.email))
+                EventBus.emit(MESSAGES, alreadyloggedinas(res.data.user.email))
 
                 this.$router.push({ path: '/authed' })
 

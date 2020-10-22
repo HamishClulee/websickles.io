@@ -85,7 +85,7 @@ export default {
         }
     },
     mounted() {
-        EventBus.$on(SERVER_AUTH_ERROR_MESSAGE, msg => {
+        EventBus.on(SERVER_AUTH_ERROR_MESSAGE, msg => {
             this.servermsg = msg
         })
     },
@@ -101,7 +101,7 @@ export default {
                         this.$store.commit('IS_AUTHED', res.data.user)
                         settoken(res.data.user.token)
 
-                        EventBus.$emit(MESSAGES, welcomeback(res.data.user.email))
+                        EventBus.emit(MESSAGES, welcomeback(res.data.user.email))
 
                         this.$router.push({ path: '/app' })
                     }

@@ -97,7 +97,7 @@ export default {
         logout() {
             this.$QAuth.logout().then(res => {
                 this.$store.commit('IS_AUTHED', res.data.user)
-                EventBus.$emit(MESSAGES, LOGGED_OUT)
+                EventBus.emit(MESSAGES, LOGGED_OUT)
                 if (this.$route.path !== '/') this.$router.push({ path: '/' })
             })
         },

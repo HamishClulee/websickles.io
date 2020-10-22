@@ -41,7 +41,7 @@ export default {
     },
     methods: { 
         closeNow() {
-            EventBus.$emit(MESSAGES, { is: false })
+            EventBus.emit(MESSAGES, { is: false })
         }, 
     },
 }

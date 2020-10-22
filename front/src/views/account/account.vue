@@ -48,19 +48,19 @@ export default {
         }
     },
     created() {
-        EventBus.$emit(LOADING, true)
+        EventBus.emit(LOADING, true)
 
         this.$QAuth.usersettings().then(res => {
             this.$store.commit('IS_AUTHED', res.data.user)
             this.user = res.data.user
-            EventBus.$emit(LOADING, false)
+            EventBus.emit(LOADING, false)
         })
     },
     methods: {
         logout() {
             this.$QAuth.logout().then(res => {
                 this.$store.commit('IS_AUTHED', res.data.user)
-                EventBus.$emit(MESSAGES, LOGGED_OUT)
+                EventBus.emit(MESSAGES, LOGGED_OUT)
                 this.$route.name !== 'home' ? this.$router.push({ name: 'home' }) : null
             })
         },

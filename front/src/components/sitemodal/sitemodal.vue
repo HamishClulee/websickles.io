@@ -29,7 +29,7 @@ export default {
     methods: {
         closeModal() {
 
-            EventBus.$emit(SITEMODAL, false)
+            EventBus.emit(SITEMODAL, false)
         
         },
     },

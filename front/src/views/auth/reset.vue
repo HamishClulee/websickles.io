@@ -74,7 +74,7 @@ export default {
         }
     },
     mounted() {
-        EventBus.$on(SERVER_AUTH_ERROR_MESSAGE, msg => {
+        EventBus.on(SERVER_AUTH_ERROR_MESSAGE, msg => {
             this.servermsg = msg
         })
     },
@@ -82,7 +82,7 @@ export default {
         // this.$QAuth.authenticate(false).then(res => {
 
         //     this.$store.commit('IS_AUTHED', res.data.user)
-        //     EventBus.$emit(MESSAGES, alreadyloggedinas(res.data.user.email))
+        //     EventBus.emit(MESSAGES, alreadyloggedinas(res.data.user.email))
 
         // })
     },
@@ -112,7 +112,7 @@ export default {
             if (res.data.userError) {
                 this.servermsg = res.data.userError
             } else {
-                EventBus.$emit(MESSAGES, welcomeback(res.data.user.email))
+                EventBus.emit(MESSAGES, welcomeback(res.data.user.email))
                 this.servermsg = 'Password reset successfully! You are now logged in!'
                 this.$store.commit('IS_AUTHED', res.data.user)
                 this.$router.push({ path: '/app' })

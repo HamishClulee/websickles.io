@@ -102,14 +102,14 @@ export default {
     },
     mounted () {
 
-        EventBus.$emit(LOADING, true)
+        EventBus.emit(LOADING, true)
 
         this.getLogs()
 
         this.$QAdmin.getalllogfilenames().then(res => {
 
             this.loglist = ensureclean(res.data.content)
-            EventBus.$emit(LOADING, false)
+            EventBus.emit(LOADING, false)
 
         }).catch(err => this.handleHTTPError(err))
     },
@@ -125,16 +125,16 @@ export default {
         },
         handleHTTPError(err) {
 
-            EventBus.$emit(LOADING, false)
+            EventBus.emit(LOADING, false)
 
             if (err.response.status === 406) {
 
-                EventBus.$emit(MESSAGES, NEED_TO_BE_LOGGED_IN)
+                EventBus.emit(MESSAGES, NEED_TO_BE_LOGGED_IN)
                 this.$router.push({ name: 'login' })
 
             } else if (err.response.status > 500) {
 
-                EventBus.$emit(MESSAGES, EDITOR_ERROR)
+                EventBus.emit(MESSAGES, EDITOR_ERROR)
 
             }
         },

@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         switchMode(mode) {
-            EventBus.$emit(SWITCH_APP_MODE, mode)
+            EventBus.emit(SWITCH_APP_MODE, mode)
             this.showmenus = false
         },
     },

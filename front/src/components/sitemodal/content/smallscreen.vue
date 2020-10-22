@@ -15,13 +15,13 @@
 
 export default {
     name: 'smallscreen',
-    mounted () {
+    mounted() {
         let body = document.querySelector('body')
         if (body) {
             body.style.overflowY = 'hidden'
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         let body = document.querySelector('body')
         if (body) {
             body.style.overflowY = ''
