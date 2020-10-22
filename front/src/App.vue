@@ -1,32 +1,34 @@
 <template>
 	<section class="app-main">
 
-		<!-- GLOBAL SPINNER
+		<!-- GLOBAL SPINNER -->
         <transition name="fade" mode="out-in">
 
             <div v-show="showGlobalSpinner" class="global-spinner-con">
                 <loading></loading>
             </div>
 
-        </transition>  -->
+        </transition>
 
 
-		<!-- APP ACTUAL
+		<!-- APP ACTUAL -->
 
-        <template v-show="!showGlobalSpinner">  
+        <div v-show="!showGlobalSpinner">
 
-        <sitemodal :key="1" v-if="showsitemodal" v-bind="{ contains }"></sitemodal> -->
+            <sitemodal v-if="showsitemodal" v-bind="{ contains }"></sitemodal>
 
-        <navbar :key="2"></navbar>
+            <navbar v-if="checkroute"></navbar>
 
-        <router-view :key="3"></router-view>
+            <router-view ></router-view>
 
-        <qrfooter :key="4"></qrfooter>
+            <qrfooter v-if="loadPushed && showfooter"></qrfooter>
 
+        </div>
+            
 
         <usermessages v-bind="{ msg, black, sass }" v-if="showUserMessage"></usermessages>
 
-        <!-- <sitemodal contains="smallscreen" v-if="windowWidth < 620"></sitemodal> -->
+        <sitemodal contains="smallscreen" v-if="windowWidth < 620"></sitemodal>
         
 	</section>
 </template>
@@ -54,16 +56,13 @@ import {
     LOGGED_IN_WITH_GOOGLE,
 } from './EventBus'
 
-// useful cludge
-let __proxy: any
-
-const App = defineComponent({
-    name: 'app',
+export default defineComponent({
+    name: 'TheGodFather',
     components: {
         navbar,
         qrfooter,
-        // sitemodal,
-        // loading,
+        sitemodal,
+        loading,
         usermessages,
     },
     data () {
@@ -121,8 +120,6 @@ const App = defineComponent({
             
         }
 
-        // useful cludge
-        __proxy = this
         window.addEventListener('resize', this.sizeChange)
         window.addEventListener('scroll', this.scrollChange)
 
@@ -132,29 +129,23 @@ const App = defineComponent({
     },
     methods: {
         ...mapMutations(['SET_WINDOW_SIZE', 'SET_SCROLL_LOCATION']),
-        sizeChange: () => {
-
-            __proxy.SET_WINDOW_SIZE()
-		
+        sizeChange() {
+            this.SET_WINDOW_SIZE()
         },
-        scrollChange: () => {
-
-            __proxy.SET_SCROLL_LOCATION()
-
+        scrollChange() {
+            this.SET_SCROLL_LOCATION()
         },
     },
-    // computed: {
-    //     checkroute() {
-    //         return ['wapp'].indexOf(this.$route.name) === -1
-    //     },
-    //     showfooter() {
-    //         return ['auth'].indexOf(this.$route.name) === -1
-    //     },
-    //     ...mapGetters(['windowWidth']),
-    // },
+    computed: {
+        checkroute() {
+            return this.$route.name !== 'wapp'
+        },
+        showfooter() {
+            return this.$route.name !== 'auth'
+        },
+        ...mapGetters(['windowWidth']),
+    },
 })
-
-export default App
 </script>
 
 <style lang="sass" scoped>

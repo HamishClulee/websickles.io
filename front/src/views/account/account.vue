@@ -66,7 +66,7 @@ export default {
         },
     },
     computed: {
-        ...mapGetters(['isauthed'],),
+        ...mapGetters(['isauthed']),
     },
 }
 </script>
