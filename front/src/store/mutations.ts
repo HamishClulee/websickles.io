@@ -20,8 +20,8 @@ const mutations = {
         if (payload.wgtState === WgtState.Dragging) state.drag.current = payload.elementID
         else if (payload.wgtState === WgtState.Placed || payload.wgtState === WgtState.Dormant) state.drag.current = ''
 
-        if (state.widgets[payload.elementID]) {
-            state.widgets[payload.elementID].state = payload.wgtState
+        if (state.static[payload.elementID]) {
+            state.static[payload.elementID].state = payload.wgtState
         }
 
     },

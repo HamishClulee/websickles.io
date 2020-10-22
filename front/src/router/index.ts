@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 /** Website routes */
 const home = () => import('../views/home.vue')
@@ -32,8 +31,6 @@ const notfound = () => import('../views/notfound.vue')
 const authcb = () => import('../views/authcb.vue')
 
 import overwritemetas from '../utils/seo'
-
-Vue.use(VueRouter)
 
 const routes = [
     // -------------------------------------------------------------------
@@ -232,7 +229,7 @@ const routes = [
         },
     },
     {
-        path: '*',
+        path: '/:pathMatch(.*)*',
         name: 'notfound',
         component: notfound,
         beforeEnter: (to: any, from: any, next: any) => {
@@ -241,12 +238,12 @@ const routes = [
     },
 ]
 
-const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
+const router = createRouter({
+
+    history: createWebHistory(process.env.BASE_URL),
     routes,
     scrollBehavior (to, from, savedPosition) {
-        return savedPosition ? savedPosition : { x: 0, y: 0 }
+        return savedPosition ? savedPosition : { left: 0, top: 0 }
     },
 })
 

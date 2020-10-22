@@ -22,7 +22,7 @@ export default {
             this.$QAuth.verifyemailtoken(this.token).then(() => {
                 this.$router.push({ name: 'account' })
             }).catch(() => {
-                EventBus.$emit(MESSAGES, EMAIL_VERIFY_FAILURE)
+                EventBus.emit(MESSAGES, EMAIL_VERIFY_FAILURE)
                 this.$router.push({ name: 'account' })
             })
         },

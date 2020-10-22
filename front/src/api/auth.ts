@@ -47,7 +47,7 @@ export class QAuth {
             store.commit('IS_AUTHED', res.data.user)
 
             if (res.data.user.email !== null) {
-                EventBus.$emit(MESSAGES, welcomeback(res.data.user.email))
+                EventBus.emit(MESSAGES, welcomeback(res.data.user.email))
             }
 
         })

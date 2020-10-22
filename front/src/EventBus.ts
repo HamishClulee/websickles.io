@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import mitt from 'mitt'
 
-export const EventBus = new Vue()
+export const EventBus = mitt()
 
 export const LOADING = 'LOADING'
 export const MESSAGES = 'MESSAGES'

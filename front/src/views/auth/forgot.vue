@@ -63,7 +63,7 @@ export default {
         }
     },
     mounted() {
-        EventBus.$on(SERVER_AUTH_ERROR_MESSAGE, msg => {
+        EventBus.on(SERVER_AUTH_ERROR_MESSAGE, msg => {
             this.servermsg = msg
         })
     },
@@ -93,7 +93,7 @@ export default {
 
             } else {
 
-                EventBus.$emit(MESSAGES, emailsentto(this.email))
+                EventBus.emit(MESSAGES, emailsentto(this.email))
                 this.servermsg = 'Check your email for details on how to reset your password.'
 
             }

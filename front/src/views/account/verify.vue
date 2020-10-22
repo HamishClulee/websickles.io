@@ -36,7 +36,7 @@ export default {
                 please follow the instructions in the email to complete the verification process`
 
             }).catch(() => {
-                EventBus.$emit(MESSAGES, EMAIL_VERIFY_FAILURE)
+                EventBus.emit(MESSAGES, EMAIL_VERIFY_FAILURE)
             })
         },
     },

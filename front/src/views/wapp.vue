@@ -46,7 +46,7 @@ export default {
         }
     },
     mounted() {
-        EventBus.$on(SWITCH_APP_MODE, mode => {
+        EventBus.on(SWITCH_APP_MODE, mode => {
             this.app_mode = mode
         })
     },

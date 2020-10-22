@@ -2,7 +2,7 @@
     <div class="what-is-con">
         <div class="info"></div>
         <span class="span">What is this?</span>
-        <small class="small" @click="EventBus.$emit('OPEN_MODAL', modalname)">Tell me more about this step...</small>
+        <small class="small" @click="EventBus.emit('OPEN_MODAL', modalname)">Tell me more about this step...</small>
     </div>
 </template>
 
