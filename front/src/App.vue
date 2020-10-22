@@ -21,7 +21,7 @@
 
             <router-view ></router-view>
 
-            <qrfooter v-if="loadPushed && showfooter"></qrfooter>
+            <qrfooter v-if="showfooter"></qrfooter>
 
         </div>
             
@@ -122,9 +122,6 @@ export default defineComponent({
 
         window.addEventListener('resize', this.sizeChange)
         window.addEventListener('scroll', this.scrollChange)
-
-        // another useful cludge to prevent the footer from flashing
-        setTimeout(() => this.loadPushed = true, 1500)  
 
     },
     methods: {
