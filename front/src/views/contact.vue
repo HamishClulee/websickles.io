@@ -21,7 +21,7 @@
             ></qinput>
 
             <div class="multi-container">
-                <multiselect v-model="selectval" :options="selectopts"></multiselect>
+                <!-- <multiselect v-model="selectval" :options="selectopts"></multiselect> -->
             </div>
 
             <qtextarea
@@ -41,11 +41,10 @@
 <script>
 import qinput from '../components/forms/qinput'
 import qtextarea from '../components/forms/qtextarea'
-import multiselect from 'vue-multiselect'
 export default {
     name: 'contact',
     components: {
-        qinput, qtextarea, multiselect,
+        qinput, qtextarea,
     },
     data() {
         return {

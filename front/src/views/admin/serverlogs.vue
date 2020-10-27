@@ -37,11 +37,12 @@
 
             <section class="log-list-container layout-col">
                 <h6>Get Specific Date (if none selected, todays log is shown)</h6>
-                <multiselect
-                    v-model="selectval"
-                    :options="loglist"
-                ></multiselect>
+                  <select v-model="selectval" @click="selectActive = !selectActive" :class="selectActive ? 'select-active' : 'select-inactive'">
+                    <option disabled value="">Please select one</option>
+                    <option v-for="(option, index) in loglist" :key="index">{{ option }}</option>
+                </select>
             </section>
+
         </section>
 
 
@@ -78,7 +79,6 @@
 
 <script>
 import { transform, ensureclean } from './transformlogs'
-import multiselect from 'vue-multiselect'
 import {
     EDITOR_ERROR,
     EventBus,
@@ -89,15 +89,13 @@ import {
 
 export default {
     name: 'serverlogs',
-    components: {
-        multiselect,
-    },
     data () {
         return {
             activeLevel: 'ERROR',
             loglist: [],
             dayslog: [],
             selectval: '',
+            selectActive: false,
         }
     },
     mounted () {
@@ -205,5 +203,11 @@ tr:nth-child(even) {
 .log-item
     padding: 20px
     border-bottom: 1px solid $medium-gray
-    
+select
+    padding: 10px
+    margin-right: 10px
+    &.select-active
+        border-radius: 5px 5px 0 0
+    &.select-inactive
+        border-radius: 5px
 </style>

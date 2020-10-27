@@ -1,8 +1,10 @@
-import { State, WgtState } from '../../interfaces/IState'
+import { WgtState } from '../../interfaces/IState'
+
+import { State } from '../../interfaces/IState'
 
 import { NAVBAR, HEADER, CONTENT_BLOCKS } from '../../interfaces/IWidgetNames'
 
-const state: State = {
+export const state: State = {
     user: {
         email: null,
         id: null,
@@ -35,5 +37,3 @@ const state: State = {
     },
     content: [],
 }
-
-export default state

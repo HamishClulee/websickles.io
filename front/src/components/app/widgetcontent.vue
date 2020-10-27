@@ -31,10 +31,10 @@
 </template>
 
 <script>
-
+import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
 import { NAVBAR, HEADER, CONTENT_BLOCKS } from '@I/IWidgetNames'
-export default {
+export default defineComponent({
     name: 'widgetcontent',
     props: {
         outline: {
@@ -75,8 +75,8 @@ export default {
             return this.getCurrentDrag !== '' && this.getCurrentDrag
         },
 
-    },
-}
+    }, 
+})
 </script>
 
 <style lang="sass" scoped>
@@ -91,7 +91,6 @@ export default {
     background: tint($success, 50)
 .header
     height: 300px
-    &.pull-up
 .navbar
     height: 80px
 </style>

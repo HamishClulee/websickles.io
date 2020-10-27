@@ -110,23 +110,26 @@
     </main>
 </template>
 
-<script>
-import displaysection from '../components/displaysection'
-export default {
-    name: 'home',
+<script lang="ts">
+import { defineComponent } from 'vue'
+import displaysection from '../components/displaysection.vue'
+export default defineComponent({
+    name: 'Home',
     components: {
         displaysection,
+    },
+    data() {
+        return {
+            scrollElem: document.getElementById('srcoll-pop'),
+        }
     },
     methods: {
         ctaroute () { this.$router.push({name: 'manage'}) },
         scrollDown() {
-            const el = document.getElementById('srcoll-pop')
-            el.scrollIntoView({
-                alignToTop: true, behavior: 'smooth',
-            })
+            if (this.scrollElem) this.scrollElem.scrollIntoView({ behavior: 'smooth' })
         },
     },
-}
+})
 </script>
 
 <style lang="sass" scoped>

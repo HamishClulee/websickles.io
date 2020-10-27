@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import widgetmenu from './widgetmenu'
-import widgetcontent from './widgetcontent'
+import widgetmenu from './widgetmenu.vue'
+import widgetcontent from './widgetcontent.vue'
 import { mapGetters, mapMutations } from 'vuex'
-import { NAVBAR, HEADER, CONTENT_BLOCKS } from '@I/IWidgetNames'
-import { WgtState } from '@I/IState'
+import { NAVBAR, HEADER, CONTENT_BLOCKS } from '../../../interfaces/IWidgetNames'
+import { WgtState } from '../../../interfaces/IState'
 export default {
     name: 'widgetmode',
     components: {
@@ -43,50 +43,39 @@ export default {
         }
     },
     methods: {
-
         ...mapMutations(['SET_STATIC_STATE']),
-
         dragstart(event) {
-
             this.SET_STATIC_STATE({
                 elementID: event.target.id,
                 wgtState: WgtState.Dragging,
             })
-
             if (this.getCurrentDrag === HEADER) this.outline[HEADER] = true
             if (this.getCurrentDrag === NAVBAR) this.outline[NAVBAR] = true
-
         },
-
         dropped(event) {
-
             if (this.isDragging && event.target.id === 'widget-content-panel') {
     
                 this.SET_STATIC_STATE({
                     elementID: this.getCurrentDrag,
                     wgtState: WgtState.Placed,
                 })
-
             } else {
-
                 this.SET_STATIC_STATE({
                     elementID: this.getCurrentDrag,
                     wgtState: WgtState.Dormant,
                 })
-
             }
-
             this.outline[this.getCurrentDrag] = false
-
         },
     },
     computed: {
         ...mapGetters(['getCurrentDrag', 'getAllStatic', 'getStaticWidget']),
-
         isDragging() {
-            return this.getCurrentDrag !== '' && this.getCurrentDrag
+            return this.getCurrentDrag !== '' && !!this.getCurrentDrag
         },
-
+        currentDrag() {
+            return this.$store.getters.getCurrentDrag
+        },
     },
 }
 </script>

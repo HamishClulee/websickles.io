@@ -26,3 +26,4 @@ echo "---------------------- shiping the mevn'z --------------------------------
 ssh websickles.io 'cd /var/www/websickles.io && sudo git reset --hard && sudo git pull && sudo systemctl restart websickles.service'
 
 echo "---------------------- Deploy complete. Have a nice day. ----------------------"
+exit 0

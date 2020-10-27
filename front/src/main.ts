@@ -1,4 +1,3 @@
-import 'vue-multiselect/dist/vue-multiselect.min.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'

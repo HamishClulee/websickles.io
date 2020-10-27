@@ -16,7 +16,7 @@
       ],
       "paths": {
         "@I/*": [
-          "../interfaces/*"
+          "./interfaces/*"
         ]
       },
       "lib": [
