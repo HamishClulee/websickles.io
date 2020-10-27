@@ -1,14 +1,16 @@
 <template>
-    <footer class="qr-footer layout-row" :class="isWapp ? 'wapp-footer' : 'standard-footer'">
-        <img
-            src="/images/pop-logo.png"
-            alt="Create Mevn Logo"
-            width="100%"
-            class="logo"
-        />
-        <div class="text-container layout-col">
-            <h4 class="main">WEBSICKLES.IO</h4>
-            <h4 class="sub">Make Life Easy</h4>
+    <footer class="qr-footer" :class="isWapp ? 'wapp-footer' : 'standard-footer'">
+        <div v-if="displayPushed" class="footer-content layout-row layout-center-all" :class="displayPushed ? 'in-view' : 'hidden'">
+            <img
+                src="/images/pop-logo.png"
+                alt="Create Mevn Logo"
+                width="100%"
+                class="logo"
+            />
+            <div class="text-container layout-col">
+                <h4 class="main">WEBSICKLES.IO</h4>
+                <h4 class="sub">Make Life Easy</h4>
+            </div>
         </div>
     </footer>
 </template>
@@ -16,6 +18,16 @@
 <script>
 export default {
     name: 'qrfooter',
+    data() {
+        return {
+            displayPushed: false,
+        }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.displayPushed = true
+        }, 500)
+    },
     computed: {
         isWapp() {
             return this.$route.name === 'wapp'
@@ -25,8 +37,13 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.wapp-footer
-    margin-bottom: $wapp-menu-height
+.footer-content
+    transition: all 1.5s ease
+    opacity: 0
+    &.in-view
+        opacity: 1
+    &.hidden
+        opacity: 0
 .qr-footer
     height: 10vh
     min-height: 200px

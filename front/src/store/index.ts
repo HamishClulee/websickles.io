@@ -2,8 +2,7 @@ import {
     createStore,
     Store as VuexStore,
     CommitOptions,
-    DispatchOptions,
-  } from 'vuex'
+} from 'vuex'
 import { State } from '../../interfaces/IState'
 import { state } from './state'
 import { mutations, Mutations } from './mutations'
@@ -28,5 +27,5 @@ export type Store = Omit<VuexStore<State>, 'getters' | 'commit' | 'dispatch'> & 
     getters: {
         [K in keyof Getters]: ReturnType<Getters[K]>
     }
-    
+
 }
